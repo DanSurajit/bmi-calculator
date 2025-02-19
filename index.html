@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/bmi-index.css" />
+    <title>BMI-Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mask">
+        <div class="bmi-card">
+          <div class="bmi-card-left">
+            <h1>Calculate Body Mass Index</h1>
+            <div class="unit">
+              <label class="left-card-label">UNIT</label>
+              <div class="radio-container form-input">
+                <label>
+                  <input type="radio" name="unit" id="stanard" checked />
+                  <div class="box">
+                    <div>
+                      <span>Standard</span>
+                    </div>
+                  </div>
+                </label>
+
+                <label>
+                  <input type="radio" name="unit" id="metric" />
+                  <div class="box">
+                    <div>
+                      <span>Metric</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="age">
+              <label class="left-card-label">AGE</label>
+              <div class="input-wrapper form-input">
+                <input type="text" placeholder="23" />
+                <div class="label">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div class="gender">
+              <label class="left-card-label">GENDER</label>
+              <div class="form-input gender-input">
+                <div>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    class="radio-f"
+                    checked
+                  />
+                  <label for="male">Male</label>
+                </div>
+                <div>
+                  <input type="radio" name="gender" value="female" />
+                  <label for="female">Female</label>
+                </div>
+              </div>
+            </div>
+            <div class="height">
+              <label class="left-card-label">HEIGHT</label>
+              <div class="form-input height-input">
+                <div class="input-wrapper">
+                  <input type="text" placeholder="5" id="height-feet" />
+                  <div class="label">
+                    <span>feet</span>
+                  </div>
+                </div>
+                <div class="input-wrapper">
+                  <input type="text" placeholder="4" id="height-inches" />
+                  <div class="label">
+                    <span>inches</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="weight">
+              <label class="left-card-label">WEIGHT</label>
+              <div class="input-wrapper form-input">
+                <input type="text" placeholder="130" id="weight" />
+                <div class="label">
+                  <span>kg</span>
+                </div>
+              </div>
+            </div>
+            <button id="calculate-btn" class="button">
+              <span>CALCULATE NOW</span>
+            </button>
+          </div>
+          <div class="bmi-card-right">
+            <div class="filter-mask">
+              <div class="result">
+                <h1>Result</h1>
+                <p class="result-value" id="result-output">22.31</p>
+                <p id="bmi-range-result">(Normal)</p>
+              </div>
+              <div class="note">
+                Note:
+                <ul>
+                  <li>Normal BMI range:</li>
+                  <p>18.5kg/m2 - 25kg/m2</p>
+                  <li>Normal BMI weight range for the height:</li>
+                  <p>107.8lbs-145.6lbs</p>
+                  <li>Ponderal Index: 13.73 kg/m3</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/scripts/bmi-index.js"></script>
+  </body>
+</html>
