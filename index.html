@@ -1,22 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/bmi-index.css" />
-    <title>BMI-Calculator</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/bmi-index.css" />
+  <meta name="description" content="BMI Calculator" />
+  <meta name="keywords" content="BMI, BMI Calculator, Body Mass Index" />
+  <meta name="author" content="Surajit Dan" />
+  <meta name="robots" content="index, follow" />
+  <meta name="revisit-after" content="3 days" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:title" content="BMI-Calculator" />
+  <meta property="og:description" content="BMI Calculator" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://surajitdan.github.io/bmi-calculator/" />
+  <meta property="og:site_name" content="BMI-Calculator" />
+  <meta property="og:image" content="https://surajitdan.github.io/bmi-calculator/assets/page.png" />
+  <meta property="og:image:secure_url" content="https://surajitdan.github.io/bmi-calculator/assets/page.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="BMI-Calculator" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BMI-Calculator" />
+  <meta name="twitter:description" content="BMI Calculator" />
+  <meta name="twitter:image" content="https://surajitdan.github.io/bmi-calculator/assets/page.png" />
+  <meta name="twitter:image:alt" content="BMI-Calculator" />
+  <meta name="twitter:site" content="@surajitdan" />
+  <meta name="twitter:creator" content="@surajitdan" />
+  <link rel="apple-touch-icon" sizes="57x57" href="./assets/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./assets/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./assets/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./assets/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./assets/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./assets/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./assets/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+  <link rel="manifest" href="./assets/manifest.json">
+  <meta name="msapplication-TileColor" content="#ff0000">
+  <meta name="msapplication-TileImage" content="./assets/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ff0000">
+  <title>BMI-Calculator</title>
+</head>
+
+<body>
+  <div class="bmi-container">
     <div class="container">
-      <div class="mask">
+      <div class="bmi-card-wrapper">
         <div class="bmi-card">
           <div class="bmi-card-left">
-            <h1>Calculate Body Mass Index</h1>
+            <h1 class="heading-h1">Calculate Body Mass Index</h1>
             <div class="unit">
               <label class="left-card-label">UNIT</label>
               <div class="radio-container form-input">
                 <label>
-                  <input type="radio" name="unit" id="stanard" checked />
+                  <input type="radio" name="unit" id="standard" checked />
                   <div class="box">
                     <div>
                       <span>Standard</span>
@@ -37,7 +82,7 @@
             <div class="age">
               <label class="left-card-label">AGE</label>
               <div class="input-wrapper form-input">
-                <input type="text" placeholder="23" />
+                <input type="number" placeholder="23" id="age-input" />
                 <div class="label">
                   <span></span>
                 </div>
@@ -46,35 +91,37 @@
             <div class="gender">
               <label class="left-card-label">GENDER</label>
               <div class="form-input gender-input">
-                <div>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="male"
-                    class="radio-f"
-                    checked
-                  />
-                  <label for="male">Male</label>
+                <div class="custom-radio">
+                  <input id="male-radio" type="radio" name="gender" value="male" class="radio-f" checked />
+                  <label for="male-radio">Male</label>
                 </div>
-                <div>
-                  <input type="radio" name="gender" value="female" />
-                  <label for="female">Female</label>
+                <div class="custom-radio">
+                  <input id="female-radio" type="radio" name="gender" value="female" />
+                  <label for="female-radio">Female</label>
                 </div>
               </div>
             </div>
             <div class="height">
               <label class="left-card-label">HEIGHT</label>
-              <div class="form-input height-input">
+              <div class="form-input height-input height-standard" id="height-standard">
                 <div class="input-wrapper">
-                  <input type="text" placeholder="5" id="height-feet" />
+                  <input type="number" placeholder="5" id="height-feet" />
                   <div class="label">
                     <span>feet</span>
                   </div>
                 </div>
                 <div class="input-wrapper">
-                  <input type="text" placeholder="4" id="height-inches" />
+                  <input type="number" placeholder="4" id="height-inches" />
                   <div class="label">
                     <span>inches</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-input height-input height-metric" id="height-metric">
+                <div class="input-wrapper">
+                  <input type="number" placeholder="175" id="height-cm" />
+                  <div class="label">
+                    <span>cm</span>
                   </div>
                 </div>
               </div>
@@ -82,13 +129,13 @@
             <div class="weight">
               <label class="left-card-label">WEIGHT</label>
               <div class="input-wrapper form-input">
-                <input type="text" placeholder="130" id="weight" />
+                <input type="number" placeholder="130" id="weight" />
                 <div class="label">
-                  <span>kg</span>
+                  <span id="weight-label">lbs</span>
                 </div>
               </div>
             </div>
-            <button id="calculate-btn" class="button">
+            <button id="calculate-btn" class="button" disabled>
               <span>CALCULATE NOW</span>
             </button>
           </div>
@@ -96,11 +143,11 @@
             <div class="filter-mask">
               <div class="result">
                 <h1>Result</h1>
-                <p class="result-value" id="result-output">22.31</p>
-                <p id="bmi-range-result">(Normal)</p>
+                <p class="result-value" id="result-output"></p>
+                <p id="bmi-range-result"></p>
               </div>
               <div class="note">
-                Note:
+                <span>Note</span>
                 <ul>
                   <li>Normal BMI range:</li>
                   <p>18.5kg/m2 - 25kg/m2</p>
@@ -114,6 +161,8 @@
         </div>
       </div>
     </div>
-    <script src="/scripts/bmi-index.js"></script>
-  </body>
+  </div>
+  <script src="./scripts/bmi-index.js"></script>
+</body>
+
 </html>
